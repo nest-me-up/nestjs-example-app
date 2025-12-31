@@ -1,0 +1,11 @@
+http:
+  port: 3000
+simple:
+  get: Hello World
+db:
+  type: postgres
+  host: localhost
+  port: 5432
+  username: postgres
+  password: password
+  database: my_database
