@@ -11,12 +11,22 @@
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/dist/main.js",
       "preLaunchTask": "tsc: build - tsconfig.json",
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"]
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
       "env": {
         "NODE_PATH": "./dist",
         "service_config": "src/config/local.yml",
         "NODE_ENV": "local"
       }
+    },
+    {
+      "name": "Attach to Docker",
+      "port": 9229,
+      "request": "attach",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node",
+      "remoteRoot": "/usr/src/app",
+      "localRoot": "${workspaceFolder}",
+      "restart": true
     }
   ]
 }

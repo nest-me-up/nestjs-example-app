@@ -11,6 +11,7 @@
     "start": "NODE_PATH=./dist node dist/main.js",
     "start:local": "service_config='src/config/local.yml' NODE_ENV=local NODE_PATH=./dist node dist/main.js",
     "dev": "ts-node-dev -r tsconfig-paths/register src/main.ts",
+    "dev:debug": "ts-node-dev --inspect=0.0.0.0:9229 -r tsconfig-paths/register src/main.ts",
     "test": "service_config='src/config/test.yml' jest --passWithNoTests --detectOpenHandles --forceExit",
     "test:ci": "service_config='src/config/ci.yml' jest --passWithNoTests --forceExit",
     "lint": "eslint src/**/*.ts",
