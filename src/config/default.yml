@@ -5,7 +5,7 @@ simple:
 db:
   type: postgres
   host: localhost
-  port: 5432
+  port: 9432
   username: postgres
   password: password
   database: my_database

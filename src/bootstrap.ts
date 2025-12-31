@@ -10,10 +10,8 @@ import helmet from 'helmet'
 import { Logger, LoggerErrorInterceptor, PinoLogger } from 'nestjs-pino'
 import { DataSource } from 'typeorm'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function bootstrap(): Promise<{ app: INestApplication; config: Record<string, any> }> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const config: Record<string, any> = loadConfig() as Record<string, any>
+export async function bootstrap(): Promise<{ app: INestApplication; config: object }> {
+  const config = loadConfig()
 
   const app = await NestFactory.create(AppModule)
   app.use(express.json({ limit: '50mb' }))
@@ -68,7 +66,12 @@ export async function bootstrap(): Promise<{ app: INestApplication; config: Reco
   app.use(helmet(), cors())
   const safeConf = getSecretlessConfigString(config)
   logger.log(`Server running on port ${config.http.port as number}`)
-  logger.log('Server configuration: %s, mem: %o', safeConf, process.memoryUsage())
+  logger.log(
+    'Server configuration: %s, mem: %o, service_config: %s',
+    safeConf,
+    process.memoryUsage(),
+    process.env.service_config,
+  )
 
   return { app, config }
 }

@@ -1,3 +1,5 @@
 db:
   host: postgres
-
+  port: 5432
+simple:
+  get: Hello World Local

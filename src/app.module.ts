@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { Logger } from 'nestjs-pino'
 import { join } from 'path'
 import { SimpleModule } from './simple-module/simple.module'
+import { DbModule } from './db-module/db.module'
 @Module({
   imports: getDynamicImports(),
   controllers: [],
@@ -34,6 +35,7 @@ function getDynamicImports() {
     }),
     CommonMiddlewareModule,
     SimpleModule,
+    DbModule,
   ]
 
   return imports

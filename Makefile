@@ -22,6 +22,9 @@ migration_generate:
 migration_create:
 	npm run migration:create -- src/migrations/$(filter-out $@,$(MAKECMDGOALS))
 
+migrate:
+	npm run migration:run
+
 logs:
 	docker compose logs -f my_service
 

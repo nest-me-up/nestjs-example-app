@@ -1,6 +1,5 @@
 import { ConfigModule, ContextModule, LoggerModule } from '@nest-me-up/common'
 import { Module } from '@nestjs/common'
-
 import { SimpleController } from './simple.controller'
 import { SimpleService } from './simple.service'
 

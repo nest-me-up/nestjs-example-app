@@ -5,19 +5,19 @@ import { InjectPinoLogger, PinoLogger } from 'nestjs-pino'
 
 @Injectable()
 export class SimpleService {
-  private readonly config: SimpleConfig
+  private readonly config: SimpleConfig | undefined
   constructor(
     @InjectPinoLogger(SimpleService.name)
     private readonly logger: PinoLogger,
     private readonly configService: ConfigService,
     private readonly contextService: ContextService,
   ) {
-    this.config = this.configService.get('simple') as SimpleConfig
+    this.config = this.configService.get<SimpleConfig>('simple')
   }
 
   getHello(): string {
     this.logger.info('getHello, context: %o', this.contextService.getContext())
-    return this.config.get
+    return this.config?.get ?? 'Hello World'
   }
 }
 
