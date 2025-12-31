@@ -64,6 +64,7 @@ export async function bootstrap(): Promise<{ app: INestApplication; config: obje
   )
 
   app.use(helmet(), cors())
+
   const safeConf = getSecretlessConfigString(config)
   logger.log(`Server running on port ${config.http.port as number}`)
   logger.log(

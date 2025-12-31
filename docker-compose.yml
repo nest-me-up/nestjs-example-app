@@ -13,6 +13,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
   my_service:
     build:
@@ -32,6 +34,9 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+
+volumes:
+  postgres_data:
 
 secrets:
   npmrc:
