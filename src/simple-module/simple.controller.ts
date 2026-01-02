@@ -4,11 +4,11 @@ import { SimpleService } from './simple.service'
 
 @Controller('simple')
 export class SimpleController {
-  constructor(private readonly simpleService: SimpleService) {}
+  constructor(private readonly service: SimpleService) {}
 
   @Get()
   getHello(): string {
-    return this.simpleService.getHello()
+    return this.service.getHello()
   }
 
   @Get('uncaught-exception')

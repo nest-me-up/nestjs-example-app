@@ -3,3 +3,6 @@ db:
   port: 5432
 simple:
   get: Hello World Local
+redis:
+  host: redis
+  port: 6379

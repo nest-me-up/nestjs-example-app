@@ -1,10 +1,12 @@
 import { CommonMiddlewareModule, ConfigModule, LoggerModule, loadConfig } from '@nest-me-up/common'
+import { CacheManagerModule } from '@nest-me-up/redis-modules'
 import { Module, OnApplicationShutdown } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { Logger } from 'nestjs-pino'
 import { join } from 'path'
-import { SimpleModule } from './simple-module/simple.module'
+import { CachedModule } from './cached-module/cached.module'
 import { DbModule } from './db-module/db.module'
+import { SimpleModule } from './simple-module/simple.module'
 @Module({
   imports: getDynamicImports(),
   controllers: [],
@@ -34,8 +36,10 @@ function getDynamicImports() {
       }),
     }),
     CommonMiddlewareModule,
+    CacheManagerModule,
     SimpleModule,
     DbModule,
+    CachedModule,
   ]
 
   return imports

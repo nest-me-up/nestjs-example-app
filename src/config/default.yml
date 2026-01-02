@@ -9,3 +9,8 @@ db:
   username: postgres
   password: password
   database: my_database
+redis:
+  host: localhost
+  port: 9379
+cached:
+  ttlInSeconds: 60

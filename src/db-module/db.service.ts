@@ -17,6 +17,20 @@ export class DbService {
     private readonly userRepository: Repository<UserEntity>,
   ) {}
 
+  async getUser(id: string): Promise<IUser> {
+    const user = await this.userRepository.findOne({
+      where: {
+        id: id,
+        tenantId: this.contextService.getContext().tenantId,
+        deleted: false,
+      },
+    })
+    if (!user) {
+      throw new DomainCustomException('User not found', ErrorCodes.NOT_FOUND)
+    }
+    return this.userToDto(user)
+  }
+
   async getUsers(): Promise<IUser[]> {
     const users = await this.userRepository.find({
       where: {
