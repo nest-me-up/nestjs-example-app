@@ -1,2 +1,5 @@
 simple:
   get: Hello World Local
+kafka:
+  broker_host: localhost
+  broker_port: 29092

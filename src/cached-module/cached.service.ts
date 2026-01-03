@@ -8,7 +8,6 @@ import { Not, Repository } from 'typeorm'
 import { UserEntity } from '../db-module/entity/user.entity'
 import { ErrorCodes } from '../domain-data-types/error-codes'
 import type { ICreateUser, IUpdateUser, IUser } from '../domain-data-types/user.interface'
-
 @Injectable()
 export class CachedService {
   private readonly config: CachedConfig

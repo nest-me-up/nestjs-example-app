@@ -1,3 +1,4 @@
+service_name: my-service
 http:
   port: 3000
 simple:
@@ -14,3 +15,11 @@ redis:
   port: 9379
 cached:
   ttlInSeconds: 60
+kafka:
+  broker_host: localhost
+  broker_port: 9092
+  group: my-service-group
+  retries: 0
+  consumerSessionTimeout: 480000
+  consumerHeartbeatInterval: 3000
+  consumerMaxWaitTimeInMs: 100

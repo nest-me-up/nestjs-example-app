@@ -6,6 +6,7 @@ import { Logger } from 'nestjs-pino'
 import { join } from 'path'
 import { CachedModule } from './cached-module/cached.module'
 import { DbModule } from './db-module/db.module'
+import { MessagingModule } from './messsaging-module/messaging.module'
 import { SimpleModule } from './simple-module/simple.module'
 @Module({
   imports: getDynamicImports(),
@@ -40,6 +41,7 @@ function getDynamicImports() {
     SimpleModule,
     DbModule,
     CachedModule,
+    MessagingModule,
   ]
 
   return imports
